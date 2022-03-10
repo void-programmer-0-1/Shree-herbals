@@ -1,0 +1,136 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Bebas+Neue&family=Open+Sans+Condensed:wght@300&family=Poppins:ital,wght@1,300&family=Righteous&family=Roboto+Mono:ital,wght@0,300;1,300&family=Shadows+Into+Light&family=Staatliches&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Staatliches', cursive;
+}
+
+body{
+    background-color: white;
+}
+
+.navbar{
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    justify-content: space-between;
+    color: black;
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Staatliches', cursive;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    border-style: none  ;
+
+}
+
+.navbar-left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.navbar-logo img{
+    border-radius: 200px;
+    margin-right: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.navbar-right{
+    display: flex;
+    justify-content: s;
+    align-items: center;
+}
+
+.navbar-list{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+}
+
+.navbar-list-item{
+    margin-left: 10px;
+}
+
+.navbar-list-item a{
+    text-decoration: none;
+    color: black;
+}
+
+.btn{
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Staatliches', cursive;
+}
+
+.btn-logout{
+    margin-left: 15px;
+    color: white;
+}
+
+.home-container{
+    width:100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("../image/logo.jpg");
+    background-size:cover;
+    background-position: center;
+}
+
+.title-content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color:white;
+}
+
+.title-content h1{
+    font-size: 60px;
+}
+
+.title-content p{
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25px;
+}
+
+.button-content{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 10px;
+}
+
+.button-content button{
+    padding: 10px;
+}
+
+#addProduct{
+    margin-right: 10px;
+}

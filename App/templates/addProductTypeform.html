@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/addProductTypeform.css' %}">
+    <title>Shree Herbal</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-logo">
+                <img src="{% static 'image/shree-herbals-logo.jpg' %}" alt="" width="40" height="40">
+            </div>
+            <div class="navbar-brand">
+                <h2>Shree Herbals</h2>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-tems">
+                <ul class="navbar-list">
+                    <li class="navbar-list-item"><a href="/">Home</a></li>
+                    <li class="navbar-list-item"><a href="/invoice/">Create Invoice</a></li>
+                    <li class="navbar-list-item"><a href="">Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button id="form-btn" class="btn">submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

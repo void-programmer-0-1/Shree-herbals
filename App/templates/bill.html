@@ -1,0 +1,269 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Shree Herbal</title>
+    <link rel="stylesheet" href="{% static 'css/bill.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" defer></script>
+    <script src="{% static 'js/bill.js' %}" defer></script>
+
+    <style>
+        .border,.table-bordered{
+            border:1px solid #000000!important;
+        }
+
+        .border-right{
+            border-right:1px solid #000000!important;
+        }
+    </style>
+    
+    <!--  removes the website url from the bottom of the page -->
+     <style media="print"> 
+        @page {
+            size: auto;
+            margin: 0;
+        }
+
+        .right-text{
+            text-align: right;
+        }
+    </style>
+
+</head>
+<body>
+
+    <br/>
+    <div class="container">
+        <div class="col-sm-12 p-2">
+            <div class="row border">
+                <div class="col-sm-6">
+                    <img src="{% static 'image/shree-herbals-logo.jpg' %}" alt="" width="120px" height="">
+                </div>
+                <div class="col-sm-6 right-text p-2" style="text-align: right;">
+                    <h3>SHREE HERBAL PRODUCTS</h3>
+                    <h6>Chinnathirupathy,salem-636008</h6>
+                    <h6>Phone no:6383282984 Email: kavithasanthakumar.yt@gmail.com</h6>
+                </div>
+            </div>
+            <div class="row border">
+                <div class="col-sm-6 p-0 border-right">
+                    <div class="bg-success p-2">
+                        Sales For:
+                    </div>
+                    <div class="p-2" id="address-box">
+                        {{ data.0 }}
+                    </div>
+                </div>
+                <div class="col-sm-6 p-0" style="text-align: right;">
+                    <div class="p-2">
+                        Sales No: {{ saleNumber }}<br/>
+                    </div>
+                    <div class="p-2">
+                        Date: <b id="date"></b>&nbsp;<b id="time"></b>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-0">
+                <div class="table-responsive p-0">
+                    <table class="table table-bordered p-0 mb-0">
+                            <tr class="bg-success">
+                                <th>#</th>
+                                <th>Item name</th>
+                                <th>Quantity</th>
+                                <th>Price/Unit</th>
+                                <th>Discount</th>
+                                <th>Amount</th>
+                            </tr>
+                            {% for d in data.3 %} <!-- intercom -->
+                            <tr>
+                                <td>{{ d.0 }}</td>  <!-- index number -->
+                                <td>{{ d.2 }}</td>  <!-- item name -->
+                                <td>{{ d.3 }}</td>  <!-- Quantity -->
+                                <td>{{ d.4 }}</td>  <!-- Price/Unit -->
+                                <td>{{ d.6 }}%</td> <!-- Discount -->
+                                <td>{{ d.5 }}</td>  <!-- Amount -->
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <td></td>
+                                <th>Total</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{ total }}</td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row p-0 border">
+                <div class="col-sm-6 border-right">
+
+                </div>
+                <div class="col-sm-6 p-0">
+                    <div class="col-sm-12 bg-success p-1">
+                        Amounts:
+                    </div>
+                    <div class="col-sm-12 p-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Sub Total
+                            </div>
+                            <div class="col-sm-6"  style="text-align: right;">
+                                {{ total }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 p-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Shipping
+                            </div>
+                            <div class="col-sm-6"  style="text-align: right;">
+                                {{ data.2 }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-0 border">
+                <div class="col-sm-6 p-0 border-right ">
+                    <div class="col-sm-12 bg-success text-center p-1">
+                        Estimate Amount in Words
+                    </div>
+                    <div class="col-sm-12  text-center">
+                        {{ num_in_words }}
+                    </div>
+                </div>
+                <div class="col-sm-6 border-bottom">
+
+                </div>
+            </div>
+            <div class="row p-0 border">
+                <div class="col-sm-6 p-0 border-right">
+                    <div class="col-sm-12 bg-success p-1">
+                        Terms & Conditions:
+                    </div>
+                    <div class="col-sm-12 p-1">
+                        Thanks for doing business with us!
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-center">
+                        For. SHREE HERBAL PRODUCTS
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="text-center">
+                        Authorized Signatory
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <br/>
+    <div class="container text-center">
+        <button class="btn btn-success" id="printbtn" type="button" onclick=printoption()>Printout</button>
+    </div>
+    <br/>
+
+    <!-- <div class="header">
+        <div class="left-side">
+            <div class="img-container">
+                <img src="{% static 'image/shree-herbals-logo.jpg' %}" alt="" width="50px" height="50px">
+            </div>
+            <div class="brand-name">
+                <h1>Shree Herbals Products</h1>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="date-container">
+                <h3 id="date"></h3>
+            </div>
+            <div class="time-container">
+                <h6 id="time"></h6>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="title">
+        <h1>Product-Bill</h1>
+    </div> -->
+
+    <!-- <div class="from-to">
+        <div class="form-container">
+            <div class="from-title">
+                <h3>From</h3>
+            </div>
+            <div class="from-address">
+                <p>Shree Herbal Products</p>
+                <p>chinna thirupathi,Salem - 636008</p>
+                <p>Email : kavithasanthakumar.yt@gmail.com</p>
+                <p>Ph.No : 6383282984</p>
+            </div>
+        </div>
+        <div class="to-container">
+            <div class="to-title">
+                <h3>To</h3>
+            </div>
+            <div class="to-address">
+                <p>{{ data.0 }}</p>
+             
+                <div id="address-box">
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="table-container">
+        <table id="invoice-table">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Prize</th>
+                    <th>Discount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data.2 %}
+                    <tr>
+                        <td>{{ d.0 }}</td>
+                        <td>{{ d.2 }}</td>
+                        <td>{{ d.3 }}</td>
+                        <td>{{ d.4 }}</td>
+                        <td>{{ d.5 }}%</td>
+                    </tr>
+                {% endfor %}
+            </tbody>         
+        </table>
+    </div> -->
+    
+
+    <script>
+
+        let address = "{{ data.1 }}".split(", ")
+        let addressBar = document.getElementById("address-box");
+        console.log(addressBar);
+        
+        for(let i=0;i<address.length;i++){
+            let para = document.createElement("div");
+            para.innerHTML = address[i];
+            addressBar.appendChild(para);
+        }
+
+        function printoption(){	
+            document.getElementById("printbtn").style.visibility ="hidden";
+            window.print();
+            document.getElementById("printbtn").style.visibility ="visible";
+        }
+
+    </script>
+
+    
+
+</body>
+</html>

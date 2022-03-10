@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/invoicePage.css' %}">
+    <script  type="text/javascript" src="{% static 'js/jquery.min.js' %}" defer></script>
+    <script src="{% static 'js/invoicePage.js'  %}" defer></script>
+
+    <script>
+        let filePath = "{% static 'js/bill.js' %}";
+    </script>
+
+    <title>Shree Herbal</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-logo">
+                <img src="{% static 'image/shree-herbals-logo.jpg' %}" alt="" width="40" height="40">
+            </div>
+            <div class="navbar-brand">
+                <h2>Shree Herbals</h2>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-tems">
+                <ul class="navbar-list">
+                    <li class="navbar-list-item"><a href="/">Home</a></li>
+                    <li class="navbar-list-item"><a href="">Create Invoice</a></li>
+                    <li class="navbar-list-item"><a href="">Analytics</a></li>
+                </ul>
+            </div>
+          
+        </div>
+    </nav>
+
+
+    <div class="form-container">
+        <form id="form" action="" method="post">
+            <label for="customer-name">Enter Customer Name</label>
+            <input type="text" name="customer-name" id="customer-name" required>
+            <label for="customer-address">Enter customer Address</label>
+            <textarea rows="10"  name="customer-address" id="customer-address"></textarea>
+             <!-- shipping -->
+             <label for="shipping" style="margin-top: 10px;">Enter shipping prize</label>
+             <input type="number" id="shipping" name="shipping">
+            <div id="addition" style="margin-top: 10px;">
+                <!-- this is where the newly added form will display -->
+            </div>
+            <button id="add-product" class="btn" type="button">Add Product</button>
+            <button id="gen-product" class="btn" type="button">Generate Invoice</button>
+
+           
+        </form>
+    </div>
+    
+</body>
+</html>
